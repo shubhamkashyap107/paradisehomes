@@ -9,7 +9,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className=''>
-        <Navbar />
+        {/* <Navbar /> */}
 
 
         <Routes>
