@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import nv18 from "../../assets/Details/nv18.JPG";
 import ip21 from "../../assets/Details/ip21.PNG";
 import ip22 from "../../assets/Details/ip22.JPG";
-import ip23 from "../../assets/Details/ip23.JPG";
+// import ip23 from "../../assets/Details/ip23.JPG";
+let ip23 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732962854/IP23_pp5leq.jpg"
 import dlf20 from "../../assets/Details/dlf20.jpeg";
 import dlf19 from "../../assets/Details/dlf19.jpeg";
 import EA from "../../assets/Details/EA-141.JPG";
