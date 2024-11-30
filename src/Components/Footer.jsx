@@ -77,7 +77,7 @@ const Footer = () => {
         {/* Right Section: Logo */}
         <div className="flex justify-center lg:justify-start">
           <Link to="#">
-            <img src="src/assets/Logos/finalPng.png" alt="logo" className="w-60 mx-auto lg:mx-0" />
+            <img src="https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732955863/finalPng_oqufsd.png" alt="hehe" className="w-60 mx-auto lg:mx-0" />
           </Link>
         </div>
       </div>

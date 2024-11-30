@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+let logo = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732955359/fwx5qxzkaeeus5icnivk.png";
+let text1 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732955359/qn9m7wpkigdsyacfkjlm.png";
+let text2 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/f_auto,q_auto/rtapk4thfxljrjxfblq7";
+
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -19,11 +23,10 @@ export default function Navbar() {
       }
     };
 
-    // Attach the event listener to detect clicks outside of the menu
+
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      // Clean up the event listener on component unmount
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
@@ -34,14 +37,13 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-black shadow-md z-50 sm:h-24 sm:p-0 p-2  h-18">
+    <nav className="fixed top-0 left-0 w-full bg-black shadow-md z-50 sm:h-24 sm:p-0 p-2 h-18">
       <div className="max-w-screen-lg px-4 py-2 mx-auto flex items-center justify-between text-slate-800 lg:px-8 lg:py-3">
-        {/* Logo */}
         <div className="flex gap-4">
-          <img className="sm:h-16  h-10" src="src/assets/Logos/ph.png" alt="Logo" />
+          <img className="sm:h-16 h-10" src={logo} alt="Logo" />
           <div className="flex flex-col gap-1">
-            <img src="src/assets/Logos/text1.png" className="sm:h-6 sm:w-48  w-24" alt="Text 1" />
-            <img src="src/assets/Logos/text2.png" className="sm:h-8 sm:w-48 w-24" alt="Text 2" />
+            <img src={text1} className="sm:h-6 sm:w-48 w-24" alt="Text 1" />
+            <img src={text2} className="sm:h-8 sm:w-48 w-24" alt="Text 2" />
           </div>
         </div>
 
@@ -122,15 +124,16 @@ export default function Navbar() {
       {/* Mobile Menu Dropdown */}
       <div
         ref={menuRef}
-        className={`lg:hidden bg-white text-black absolute top-24 right-4 w-48 py-2 rounded-lg shadow-lg transition-all transform ease-in-out duration-300 ${
-          isMobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
+        className={`lg:hidden bg-gray-800 text-white absolute top-full left-0 w-full py-4 rounded-lg shadow-lg transition-all ease-in-out duration-300 ${
+          isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-10px]'
         }`}
+        style={{ zIndex: 99 }}
       >
-        <ul className="flex flex-col gap-2 text-center">
+        <ul className="flex flex-col gap-3 text-center">
           <li>
             <Link
               to="/home"
-              className="text-xl p-2 hover:bg-gray-100 rounded-lg transition duration-200"
+              className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
               onClick={handleLinkClick}
             >
               Home
@@ -139,7 +142,7 @@ export default function Navbar() {
           <li>
             <Link
               to="/projects"
-              className="text-xl p-2 hover:bg-gray-100 rounded-lg transition duration-200"
+              className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
               onClick={handleLinkClick}
             >
               Projects
@@ -148,7 +151,7 @@ export default function Navbar() {
           <li>
             <Link
               to="/services"
-              className="text-xl p-2 hover:bg-gray-100 rounded-lg transition duration-200"
+              className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
               onClick={handleLinkClick}
             >
               Services
@@ -157,7 +160,7 @@ export default function Navbar() {
           <li>
             <Link
               to="/contact"
-              className="text-xl p-2 hover:bg-gray-100 rounded-lg transition duration-200"
+              className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
               onClick={handleLinkClick}
             >
               Contact

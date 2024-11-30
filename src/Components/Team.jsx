@@ -3,19 +3,19 @@ import React from 'react';
 const team = [
   {
     name: "Ravinder Jain",
-    img: "src/assets/Team/ravinderJi.jpeg"
+    img: "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732962068/ravinderJi_rxnzcx.jpg"
   },
   {
     name: "Ashish Jain",
-    img: "src/assets/Team/ashishJi.jpeg"
+    img: "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732962068/ashishJi_hwwcrp.jpg"
   },
   {
     name: "Anshul Jain",
-    img: "src/assets/Team/anshulJi.jpeg"
+    img: "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732962068/anshulJi_ity6yn.jpg"
   },
   {
     name: "Sahil Jain",
-    img: "src/assets/Team/sahilJi.jpeg"
+    img: "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732962069/sahilJi_noluov.jpg"
   },
 ];
 
