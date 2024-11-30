@@ -21,6 +21,7 @@ const Carousel = ({ interval = 3000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isMuted, setIsMuted] = useState(true); // state to track mute status
+  const [isLoading, setIsLoading] = useState(true); // state to track video loading status
   const videoRef = useRef(null);
 
   // Detect screen size to toggle between mobile and desktop
@@ -69,6 +70,11 @@ const Carousel = ({ interval = 3000 }) => {
     setIsMuted((prevState) => !prevState);
   };
 
+  // Handler for when the video is loaded
+  const handleVideoLoaded = () => {
+    setIsLoading(false); // Set loading state to false once the video is ready
+  };
+
   return (
     <div
       {...swipeHandlers}
@@ -77,6 +83,12 @@ const Carousel = ({ interval = 3000 }) => {
       {/* Render Video for Mobile */}
       {isMobile ? (
         <div className="relative w-full h-[80vh]">
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+              {/* Loader Spinner */}
+              <div className="border-t-4 border-blue-500 border-solid w-12 h-12 rounded-full animate-spin"></div>
+            </div>
+          )}
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
@@ -84,6 +96,7 @@ const Carousel = ({ interval = 3000 }) => {
             muted={isMuted} // mute/unmute based on state
             loop
             playsInline
+            onLoadedData={handleVideoLoaded} // Trigger handleVideoLoaded when video is ready
             src={mobileVideo}
           ></video>
 
