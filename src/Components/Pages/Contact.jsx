@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
   return (
-    <div className='flex flex-col sm:flex-row'>
+    <div className='flex flex-col sm:flex-row sm:mt-0 mt-20'>
       <div className='w-[100%] sm:w-8/12 sm:p-8 p-3 '>
         <Team />
         <ContactInfo />
