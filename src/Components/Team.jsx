@@ -21,7 +21,7 @@ const team = [
 
 const Team = () => {
   return (
-    <div id="team" className="flex flex-col rounded-lg bg-gray-800 text-white p-6 shadow-[0_4px_15px_rgba(0,0,0,0.5)] mt-14 [w-100%]">
+    <div id="team" className="flex flex-col rounded-lg bg-gray-800 text-white p-6 shadow-[0_4px_15px_rgba(0,0,0,0.5)] sm:mt-24 mt-22 [w-100%]">
       {/* Title */}
       <h1 className="w-fit mx-auto text-2xl font-bold text-blue-500 mb-6 border-b-2 border-blue-500 pb-2">
         Our Team

@@ -1,23 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 
-import image0 from "../assets/Carousel/0.jpg";
-import image1 from "../assets/Carousel/1.jpeg";
-import image5 from "../assets/Carousel/2.jpg";
-import image3 from "../assets/Carousel/3.jpg";
-import image4 from "../assets/Carousel/4.jpg";
-import image2 from "../assets/Carousel/5.jpg";
+let image0 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732973920/0_uiz5ow.jpg"
+let image1 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732974216/50932101-0506-4B89-A056-D72CE7B46EB7_1_201_a_atdy7a.jpg";
+let image2 =  "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732974308/3_zidkt1.jpg";
+let image3 =  "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732974305/4_sdmnob.jpg";
+let image4 =  "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732974465/5_wbxh9y.jpg";
+let image5 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732974616/DSC00604-HDR_copy_c3aqtw.jpg"
 
-// Mobile-specific images
-import m1 from "../assets/Carousel/m1.jpeg";
-import m2 from "../assets/Carousel/m2.jpg";
-import m3 from "../assets/Carousel/m3.jpeg";
 
 // Video for mobile
 import mobileVideo from "../assets/Carousel/reel.mp4";
 
 const images = [image0, image1, image2, image3, image4, image5];
-const mobileImages = [m1, m2, m3];
 
 const Carousel = ({ interval = 3000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

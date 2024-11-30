@@ -10,6 +10,9 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
         lora: ['Lora', 'serif'],
       },
+      boxShadow: {
+        white: '0 4px 6px rgba(255, 255, 255, 0.5)',
+      },
     },
   },
   plugins: [],

@@ -123,51 +123,52 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div
-        ref={menuRef}
-        className={`lg:hidden bg-gray-800 text-white absolute top-full left-0 w-full py-4 rounded-lg shadow-lg transition-all ease-in-out duration-300 ${
-          isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-10px]'
-        }`}
-        style={{ zIndex: 99 }}
+  ref={menuRef}
+  className={`lg:hidden bg-gray-800 text-white absolute top-full left-0 w-full py-4 rounded-lg shadow-lg transition-all ease-in-out duration-300 ${
+    isMobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto visible' : 'opacity-0 translate-y-[-10px] pointer-events-none invisible'
+  }`}
+  style={{ zIndex: 99 }}
+>
+  <ul className="flex flex-col gap-3 text-center">
+    <li>
+      <Link
+        to="/home"
+        className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
+        onClick={handleLinkClick}
       >
-        <ul className="flex flex-col gap-3 text-center">
-          <li>
-            <Link
-              to="/home"
-              className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
-              onClick={handleLinkClick}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/projects"
-              className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
-              onClick={handleLinkClick}
-            >
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/services"
-              className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
-              onClick={handleLinkClick}
-            >
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
-              onClick={handleLinkClick}
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </div>
+        Home
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/projects"
+        className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
+        onClick={handleLinkClick}
+      >
+        Projects
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/services"
+        className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
+        onClick={handleLinkClick}
+      >
+        Services
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/contact"
+        className="text-xl p-3 hover:bg-gray-700 hover:rounded-md transition duration-200"
+        onClick={handleLinkClick}
+      >
+        Contact
+      </Link>
+    </li>
+  </ul>
+</div>
+
     </nav>
   );
 }

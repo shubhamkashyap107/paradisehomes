@@ -1,52 +1,53 @@
 import React, { useState, useEffect } from "react";
 
-import nv18 from "../../assets/Details/nv18.JPG";
-import ip21 from "../../assets/Details/ip21.PNG";
-import ip22 from "../../assets/Details/ip22.JPG";
-// import ip23 from "../../assets/Details/ip23.JPG";
+let nv18 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732983451/nv18_dfm3he.jpg";
+let ip21 =  "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732983619/ip21_lf05ka.png";
+let ip22 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732983451/ip22_zfrbmq.jpg";
 let ip23 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732962854/IP23_pp5leq.jpg"
-import dlf20 from "../../assets/Details/dlf20.jpeg";
-import dlf19 from "../../assets/Details/dlf19.jpeg";
-import EA from "../../assets/Details/EA-141.JPG";
+let dlf20 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732983450/dlf20_nw3yfo.jpg";
+let dlf19 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732983450/dlf19_c0xbgc.jpg";
+let EA = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732983451/EA-141_mh9u9b.jpg";
 
-import img00 from "../../assets/modalImages/00.jpg";
-import img01 from "../../assets/modalImages/01.jpg";
-import img02 from "../../assets/modalImages/02.jpg";
 
-import img10 from "../../assets/modalImages/10.jpeg";
-import img11 from "../../assets/modalImages/11.jpeg";
-import img12 from "../../assets/modalImages/12.jpg";
+let img00 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976436/00_n9xnz1.jpg"
+let img01 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976436/01_flqquq.jpg";
+let img02 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976436/02_v7kin7.jpg";
 
-import img20 from "../../assets/modalImages/20.jpg";
-import img21 from "../../assets/modalImages/21.jpg";
-import img22 from "../../assets/modalImages/22.jpg";
+let img10 =  "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976438/10_jzpbuc.jpg";
+let img11 =  "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976438/11_x4vk8s.jpg";
+let img12 =  "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976437/12_fu8ffz.jpg";
 
-import img30 from "../../assets/modalImages/30.jpg";
-import img31 from "../../assets/modalImages/31.jpg";
-import img32 from "../../assets/modalImages/32.jpg";
+let img20 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976799/20_ptu27e.jpg";
+let img21 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976438/21_bdxpp2.jpg";
+let img22 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976438/22_ni2e3t.jpg";
 
-import img40 from "../../assets/modalImages/40.jpg";
-import img41 from "../../assets/modalImages/41.jpg";
-import img42 from "../../assets/modalImages/42.jpg";
+let img30 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976438/30_izotug.jpg";
+let img31 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976438/31_cgb4we.jpg";
+let img32 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976438/32_vmjm3j.jpg";
 
-import img50 from "../../assets/modalImages/50.jpg";
-import img51 from "../../assets/modalImages/51.jpg";
-import img52 from "../../assets/modalImages/52.jpg";
+let img40 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976439/40_rwenca.jpg";
+let img41 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976439/41_njxroz.jpg";
+let img42 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976439/42_aqdy41.jpg";
 
-import img60 from "../../assets/modalImages/60.jpg";
-import img61 from "../../assets/modalImages/61.jpeg";
-import img62 from "../../assets/modalImages/62.jpg";
+let img50 =  "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976440/50_orc1gk.jpg";
+let img51 =  "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976440/51_q1rozc.jpg";
+let img52 =  "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976441/52_g38mnn.jpg";
 
-// Modal Component
+let img60 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976444/60_fqaua1.jpg";
+let img61 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976446/61_bkq37b.jpg";
+let img62 = "https://res.cloudinary.com/ddx0hz1ku/image/upload/v1732976442/62_gtffya.jpg";
+
+
+
 const Modal = ({ isOpen, onClose, project }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(1); // Start from index 1
+  const [loading, setLoading] = useState(true); // State to track image loading
   const [intervalId, setIntervalId] = useState(null);
 
   useEffect(() => {
-    if (isOpen && project) { // Only start the interval if the modal is open and project is available
+    if (isOpen && project) {
       const id = setInterval(() => {
         setCurrentImageIndex((prevIndex) => {
-          // When the last image is reached, skip to index 1
           if (prevIndex === project.images.length - 1) {
             return 1;
           }
@@ -59,24 +60,25 @@ const Modal = ({ isOpen, onClose, project }) => {
     }
   }, [isOpen, project]);
 
-  // If no project, return null to avoid rendering
   if (!isOpen || !project) return null;
 
   const handleNext = () => {
+    setLoading(true); // Set loading to true when changing the image
     setCurrentImageIndex((prevIndex) => {
       if (prevIndex === project.images.length - 1) {
-        return 1; // Skip to index 1 when on the last image
+        return 1;
       }
       return prevIndex + 1;
     });
   };
 
   const handlePrev = () => {
+    setLoading(true); // Set loading to true when changing the image
     setCurrentImageIndex((prevIndex) => {
       if (prevIndex - 1 >= 0) {
         return prevIndex - 1;
       }
-      return prevIndex; // Stay on the first image
+      return prevIndex;
     });
   };
 
@@ -102,13 +104,24 @@ const Modal = ({ isOpen, onClose, project }) => {
 
         {/* Carousel */}
         <div className="relative">
-          {/* Ensure project and images exist */}
           {project.images && project.images.length > 0 && (
-            <img
-              src={project.images[currentImageIndex]}
-              alt={`${project.title} - ${currentImageIndex + 1}`}
-              className="w-full h-96 object-cover rounded-lg"
-            />
+            <>
+              {/* Loader */}
+              {loading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-50">
+                  <div className="w-10 h-10 border-4 border-gray-300 border-t-black rounded-full animate-spin"></div>
+                </div>
+              )}
+              {/* Image */}
+              <img
+                src={project.images[currentImageIndex]}
+                alt={`${project.title} - ${currentImageIndex + 1}`}
+                className={`w-full h-96 object-cover rounded-lg transition-opacity duration-500 ${
+                  loading ? "opacity-0" : "opacity-100"
+                }`}
+                onLoad={() => setLoading(false)} // Set loading to false when image loads
+              />
+            </>
           )}
           <button
             onClick={handlePrev}
@@ -133,6 +146,7 @@ const Modal = ({ isOpen, onClose, project }) => {
     </div>
   );
 };
+
 
 // ProjectCard Component
 const ProjectCard = ({ title, location, image, onClick }) => {

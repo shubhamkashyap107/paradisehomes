@@ -20,7 +20,7 @@ const Message = () => {
   };
 
   return (
-    <div className="sticky top-40 w-[90%] mx-auto h-fit p-8 border border-gray-800 rounded-lg shadow-lg bg-gray-900 mb-12">
+    <div className="sticky top-40 w-[93%] mx-auto h-fit p-8 border border-gray-800 rounded-lg shadow-lg bg-gray-900 mb-12">
       <h2 className="text-2xl font-semibold text-blue-500 mb-4">
         Connect with us!
       </h2>
